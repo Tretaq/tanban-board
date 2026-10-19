@@ -1,6 +1,6 @@
 import type { Board } from '../types/board'
 
-const initialBoard: Board = {
+export const initialBoard: Board = {
     cards: {
         'card-1': {
             id: 'card-1',
@@ -43,7 +43,7 @@ const initialBoard: Board = {
         'column-1':{
             id: 'column-1',
             title: 'To Do',
-            cardIds: ['card1', 'card2']
+            cardIds: ['card-1', 'card-2']
         },
         'column-2': {
             id: 'column-2',

@@ -1,4 +1,4 @@
-import type {Board, Column, Card} from '../types/board'
+import type {Board, Card} from '../types/board'
 
 export function getColumnCards(board: Board,columnId: string): Card[] {
     const column = board.columns[columnId];
