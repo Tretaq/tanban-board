@@ -9,10 +9,10 @@ export function CardItem({card}: CardItemProps) {
         <div className="carditem">
             {card.title}
             {card.description && <p>{card.description}</p>}
-            {card.priority}
+            <span className={`priority-${card.priority}`}>{card.priority}</span>
             {card.dueDate && <p>{card.dueDate}</p>}
             {card.labels.map(label => (
-                <span className={`priority-${card.priority}`} key={label}>
+                <span  key={label}>
                     {label}
                 </span>
             ))}

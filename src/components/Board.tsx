@@ -5,7 +5,7 @@ import "./Board.css"
 export interface BoardProps {
     board: BoardType;
 }
-export function GetBoard({ board }: BoardProps) {
+export function Board({ board }: BoardProps) {
     return (
         <div className="board">
             {
