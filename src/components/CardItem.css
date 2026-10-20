@@ -1,4 +1,6 @@
 .carditem{
+    display: flex;
+    flex-direction: column;
     background-color: white;
     box-shadow: 10px 10px 10px #e4e4e4;
     border-radius: 10px;

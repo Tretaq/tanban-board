@@ -1,5 +1,6 @@
 import type { Card } from '../types/board'
 import "./CardItem.css"
+import "./PriorityBadge.css"
 interface CardItemProps {// ts won't work without this when starting
     card: Card
 }
@@ -11,7 +12,7 @@ export function CardItem({card}: CardItemProps) {
             {card.priority}
             {card.dueDate && <p>{card.dueDate}</p>}
             {card.labels.map(label => (
-                <span key={label}>
+                <span className={`priority-${card.priority}`} key={label}>
                     {label}
                 </span>
             ))}
