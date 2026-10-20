@@ -6,7 +6,7 @@ export function getColumnCards(board: Board,columnId: string): Card[] {
     if(!column) {
         return [];
     }
-    return column.cardIds
+    return column.cardIds // we return only things that are in the cardIds
         .map((id) => board.cards[id])
         .filter((card): card is Card => !!card);
 }

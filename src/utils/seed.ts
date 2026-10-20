@@ -4,36 +4,36 @@ export const initialBoard: Board = {
     cards: {
         'card-1': {
             id: 'card-1',
-            title: 'Przygotować dokumentację projektu',
-            description: 'Opisać architekturę systemu oraz kroki wdrożeniowe dla środowiska produkcyjnego.',
+            title: 'Prepare project documentation',
+            description: 'Describe the system architecture and deployment steps for the production environment.',
             priority: 'high',
             dueDate: '2026-10-25',
-            labels: ['dokumentacja', 'pilne']
+            labels: ['documentation', 'urgent']
         },
         'card-2': {
             id: 'card-2',
-            title: 'Zaprojektować logo',
+            title: 'Design logo',
             priority: 'medium',
             labels: ['design']
         },
         'card-3': {
             id: 'card-3',
-            title: 'Refaktorować moduł logowania',
-            description: 'Zmienić mechanizm sesji na tokeny JWT.',
+            title: 'Refactor login module',
+            description: 'Change the session mechanism to JWT tokens.',
             priority: 'high',
             dueDate: '2026-10-22',
-            labels: ['backend', 'refaktor']
+            labels: ['backend', 'refactor']
         },
         'card-4': {
             id: 'card-4',
-            title: 'Naprawić błąd z wyświetlaniem stopki',
+            title: 'Fix footer rendering bug',
             priority: 'low',
             labels: ['frontend', 'bug']
         },
         'card-5': {
             id: 'card-5',
-            title: 'Spotkanie rekrutacyjne',
-            description: 'Rozmowa techniczna z kandydatem na stanowisko Senior Dev.',
+            title: 'Recruitment meeting',
+            description: 'Technical interview with the Senior Dev candidate.',
             priority: 'medium',
             dueDate: '2026-10-20',
             labels: ['hr']
@@ -55,7 +55,6 @@ export const initialBoard: Board = {
             title: 'Done',
             cardIds: ['card-5']
         },
-
     },
     columnOrder: ['column-1', 'column-2', 'column-3']
 }
