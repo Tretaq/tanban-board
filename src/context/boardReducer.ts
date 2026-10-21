@@ -43,5 +43,21 @@ export function boardReducer(state: Board, action: BoardAction):Board {
             }
             return { ...state, cards: newCards , columns: newColumns};
         }
+        case "DELETE_COLUMN": {
+            const column = state.columns[action.columnId];
+            if(!column) return state;
+
+            const newCards = { ...state.cards };
+            for(const cardId of column.cardIds){
+                delete newCards[cardId];
+            }
+            const newColumns = {...state.columns}
+            delete newColumns[column.id];
+
+            const newOrder = state.columnOrder.filter(columnId => columnId !== action.columnId);
+
+            return { ...state , cards: newCards, columns: newColumns, columnOrder: newOrder};
+
+        }
     }
 }
