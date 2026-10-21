@@ -23,13 +23,25 @@ export function boardReducer(state: Board, action: BoardAction):Board {
                 cards  : {...state.cards, [id]: newCard},
                 columns: {
                     ...state.columns, [column.id]: {...column, cardIds: [...column.cardIds, id]},
-                    // weź wszystkie colmuny i daj je do nowego boarda , weź columne
+                    // weź wszystkie colmuny i daj je do nowego boarda , weź columne i nadpisz ją starymi kartami plus nowym id
                 },
             }
         }
-        case 'DELETE_COLUMN': {
+        case 'DELETE_CARD': {
+            if(!state.cards[action.cardId]) return state;
 
+            const newCards = { ...state.cards}
+            delete newCards[action.cardId];
+
+            const newColumns = { ...state.columns}
+            for(const id in newColumns){
+                const column = newColumns[id];
+                newColumns[id] = {
+                    ...column,
+                    cardIds: column.cardIds.filter(cardId => cardId !== action.cardId),
+                }
+            }
+            return { ...state, cards: newCards , columns: newColumns};
         }
-
     }
 }
