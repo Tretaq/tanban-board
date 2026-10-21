@@ -59,5 +59,16 @@ export function boardReducer(state: Board, action: BoardAction):Board {
             return { ...state , cards: newCards, columns: newColumns, columnOrder: newOrder};
 
         }
+        case 'EDIT_CARD': {
+            const card = state.cards[action.cardId];
+            if(!card) return state;
+            return {...state, cards: {...state.cards, [card.id]: { ...card, title: action.title} }};
+        }
+        case 'RENAME_COLUMN': {
+            const column = state.columns[action.columnId];
+            if(!column) return state;
+            return {...state, columns: {...state.columns, [column.id]: {...column, title: action.title} }};
+
+        }
     }
 }
