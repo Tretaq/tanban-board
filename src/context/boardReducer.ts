@@ -1,5 +1,6 @@
-import type {Board, Card} from "../types/board.ts";
+import type {Board, Card, Column} from "../types/board.ts";
 import {createId} from "../utils/id.ts";
+import {initialBoard} from "../utils/seed.ts";
 
 export type BoardAction = | {type: 'ADD_CARD'; columnId: string; title: string}
     | {type: 'DELETE_CARD'; cardId: string}
@@ -68,7 +69,21 @@ export function boardReducer(state: Board, action: BoardAction):Board {
             const column = state.columns[action.columnId];
             if(!column) return state;
             return {...state, columns: {...state.columns, [column.id]: {...column, title: action.title} }};
-
+        }
+        case 'ADD_COLUMN': {
+            const id = createId();
+            const newColumn: Column = {id,title: action.title,cardIds: []};
+            return {...state,columns: {...state.columns, [id]: newColumn},columnOrder: [...state.columnOrder, id]};
+        }
+        case 'MOVE_CARD': {
+            return state;
+            // TODO IF I HAVE TIME FOR IT
+        }
+        case 'RESET_BOARD': {
+            return initialBoard;
+        }
+        default: {
+            return state;
         }
     }
 }
