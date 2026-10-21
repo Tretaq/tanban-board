@@ -1,11 +1,10 @@
-import type {Board as BoardType} from "../types/board.ts";
 import {getColumnCards} from "../utils/board.ts";
 import {Column} from "./Column.tsx";
 import "./Board.css"
-export interface BoardProps {
-    board: BoardType;
-}
-export function Board({ board }: BoardProps) {
+import {useBoard} from "../hooks/useBoard.ts";
+
+export function Board() {
+    const { board } = useBoard()
     return (
         <div className="board">
             {

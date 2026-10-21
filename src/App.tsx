@@ -1,5 +1,4 @@
 import "./Index.css"
-import {initialBoard} from "./utils/seed.ts";
 import {Board} from "./components/Board.tsx";
 
 function App() {
@@ -8,7 +7,7 @@ function App() {
   return (
     <main>
       <h1>Tanban Board</h1>
-    <Board board={initialBoard}></Board>
+        <Board></Board>
     </main>
   )
 }
