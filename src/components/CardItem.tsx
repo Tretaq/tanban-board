@@ -9,13 +9,15 @@ export function CardItem({card}: CardItemProps) {
         <div className="carditem">
             {card.title}
             {card.description && <p>{card.description}</p>}
-            <span className={`priority-${card.priority}`}>{card.priority}</span>
+            <span className={`badge priority-${card.priority}`}>{card.priority}</span>
             {card.dueDate && <p>{card.dueDate}</p>}
-            {card.labels.map(label => (
-                <span  key={label}>
-                    {label}
-                </span>
-            ))}
+            <div className="labels">
+                {card.labels.map(label => (
+                    <span  key={label}>
+                        {label}
+                    </span>
+                ))}
+            </div>
         </div>
     )
 }

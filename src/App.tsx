@@ -1,4 +1,4 @@
-
+import "./Index.css"
 import {initialBoard} from "./utils/seed.ts";
 import {Board} from "./components/Board.tsx";
 

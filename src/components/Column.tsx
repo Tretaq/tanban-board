@@ -7,7 +7,7 @@ interface ColumnProps{
 }
 export function Column({column, cards}: ColumnProps) {
         return( <div className="column">
-        <div className="column_title">{column.title}</div>
+        <div className="column-title">{column.title}</div>
         {column.cardIds.length}
         {cards.length === 0 ? "No cards found." : cards.map((card: Card) => (
             <CardItem key={card.id} card={card}></CardItem>

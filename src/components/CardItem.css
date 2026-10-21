@@ -6,5 +6,20 @@
     border-radius: 10px;
     margin-bottom: 10px;
     padding: 12px;
-
+}
+.badge{
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+}
+.label{
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    background-color: #e2dbdb;
+}
+.labels{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }
