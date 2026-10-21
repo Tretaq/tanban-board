@@ -25,7 +25,7 @@ export const initialBoard: Board = {
             labels: ['backend', 'refactor']
         },
         'card-4': {
-            id: 'card-4',
+            id: 'card-initialBoard4',
             title: 'Fix footer rendering bug',
             priority: 'low',
             labels: ['frontend', 'bug']
