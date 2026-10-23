@@ -1,4 +1,4 @@
-import {type FormEvent, useState} from "react";
+import { useState} from "react";
 
 interface  AddFormProps{
     placeholder:string;

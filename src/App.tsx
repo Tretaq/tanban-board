@@ -1,5 +1,7 @@
 import "./Index.css"
 import {Board} from "./components/Board.tsx";
+import {AddForm} from "./components/AddForm.tsx";
+
 
 function App() {
 
