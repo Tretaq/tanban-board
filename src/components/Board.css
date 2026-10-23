@@ -5,3 +5,7 @@
     overflow-x:auto;
     padding: 20px;
 }
+.AddColumn{
+    width: 280px;
+    flex-shrink: 0;
+}

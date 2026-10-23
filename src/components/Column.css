@@ -8,3 +8,7 @@
 .column-title {
     margin: 0 0 12px;
 }
+.columntitle{
+    display: flex;
+    justify-content: space-between;
+}

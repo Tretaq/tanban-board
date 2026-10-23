@@ -2,10 +2,13 @@ import {getColumnCards} from "../utils/board.ts";
 import {Column} from "./Column.tsx";
 import "./Board.css"
 import {useBoard} from "../hooks/useBoard.ts";
+import {AddForm} from "./AddForm.tsx";
 
 export function Board() {
     const { board } = useBoard()
+    const { dispatch } = useBoard();
     return (
+
         <div className="board">
             {
                 board.columnOrder.map(columnId => {
@@ -15,7 +18,11 @@ export function Board() {
                         <Column key={column.id} column={column} cards={getColumnCards(board, columnId)}></Column>
                     )
                 })
+                
             }
+            <div className="AddColumn">
+                <AddForm placeholder={"New Column"} buttonLabel={"Add Column"}  onAdd={title => dispatch({ type: 'ADD_COLUMN', title })}/>
+            </div>
         </div>
     )
 }

@@ -10,13 +10,9 @@ interface CardItemProps {// ts won't work without this when starting
 export function CardItem({card}: CardItemProps) {
     const {dispatch} = useBoard()
     return (
+
         <div className="carditem">
-            <button
-                aria-label="Delete card"
-                onClick={() => dispatch({type: "DELETE_CARD", cardId: card.id})}
-            >
-                X
-            </button>
+
             {card.title}
             {card.description && <p>{card.description}</p>}
             <span className={`badge priority-${card.priority}`}>{card.priority}</span>
@@ -28,6 +24,15 @@ export function CardItem({card}: CardItemProps) {
                     </span>
                 ))}
             </div>
+            <div>
+                <button
+                    aria-label="Delete card"
+                    onClick={() => dispatch({type: "DELETE_CARD", cardId: card.id})}
+                >
+                    X
+                </button>
+            </div>
         </div>
+
     )
 }
