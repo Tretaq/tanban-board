@@ -17,6 +17,7 @@ export function BoardProvider({ children }: BoardProviderProps) {
 
     return (
         <BoardContext.Provider value={{board, dispatch}}>
+                {/* Provides baord and dispatch to its children which is everything under it  */}
             {children}
         </BoardContext.Provider>
     )

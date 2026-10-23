@@ -7,7 +7,13 @@ interface ColumnProps{
     column: ColumType;
     cards: Card[];
 }
+
 export function Column({column, cards}: ColumnProps) {
+            function handleDelete(){
+                if(window.confirm(`Delete "${column.title}" and its ${cards.length} cards?`)){
+                    dispatch({type: 'DELETE_COLUMN', columnId: column.id});
+                }
+            }
         const { dispatch } = useBoard()
         return( <div className="column">
         <div className="column-title">{column.title}</div>
