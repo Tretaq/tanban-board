@@ -23,13 +23,13 @@ export function EditableText({value , onSave}: EditableTextProps){
         setIsEditing(false);
     }
     if(!isEditing){
-        return ( <span onClick={startEditing}>value</span>)
+        return ( <span onClick={startEditing}>{value}</span>)
     }
     return (
         <input autoFocus={true}
                value={draft}
                onChange={e => setDraft(e.target.value)}
-               onBlur={cancel}
+               onBlur={save}
                onKeyDown={e => {
                    if(e.key === 'Enter'){
                        save()
