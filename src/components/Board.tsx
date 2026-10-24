@@ -1,4 +1,4 @@
-import {getColumnCards} from "../utils/board.ts";
+import {findColumnId, getColumnCards} from "../utils/board.ts";
 import {Column} from "./Column.tsx";
 import "./Board.css"
 import {useBoard} from "../hooks/useBoard.ts";
@@ -13,7 +13,32 @@ export function Board() {
         useSensor(KeyboardSensor)
     )
 
-    function handleDragEnd() {
+    function handleDragEnd(event: DragEndEvent) {
+
+        const {active, over} = event;
+        if(!over) return;
+        const activeId = String(active.id);
+        const overId = String(over.id);
+        const fromColumnId = findColumnId(board, activeId);
+        let toColumnId: string | undefined;
+        let toIndex: number;
+
+        const overColumn = board.columns[overId];
+        if(overColumn) {
+            toColumnId = overColumn.id;
+            toIndex = overColumn.cardIds.length;
+        } else{
+            toColumnId = findColumnId(board, overId);
+            const targetColumn = toColumnId ? board.columns[toColumnId] : undefined;
+            if (!targetColumn) return;
+            toIndex = targetColumn.cardIds.indexOf(overId);
+        }
+        if(!fromColumnId || !toColumnId ) {
+            return;
+        }
+        dispatch({type: "MOVE_CARD", cardId: activeId, fromColumnId, toColumnId, toIndex});
+
+
 
     }
 

@@ -76,8 +76,9 @@ export function boardReducer(state: Board, action: BoardAction):Board {
             return {...state,columns: {...state.columns, [id]: newColumn},columnOrder: [...state.columnOrder, id]};
         }
         case 'MOVE_CARD': {
-            return state;
-            // TODO IF I HAVE TIME FOR IT
+
+
+
         }
         case 'RESET_BOARD': {
             return initialBoard;

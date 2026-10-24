@@ -23,7 +23,7 @@ export function Column({column, cards}: ColumnProps) {
 
                 <div className="column">
                     <div className="column-title"><div className="columntitle">{column.title} <button onClick={ e => handleDelete()}>X </button></div></div>
-                    <div ref={setNodeRef}>
+                    <div ref={setNodeRef} className="column-container">
                     <SortableContext items={column.cardIds} strategy={verticalListSortingStrategy}>
                     {cards.length === 0 ? "No cards found." : cards.map((card: Card) => (
                         <CardItem key={card.id} card={card}></CardItem>
