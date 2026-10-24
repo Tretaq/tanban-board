@@ -3,16 +3,24 @@ import "./CardItem.css"
 import "./PriorityBadge.css"
 import {useBoard} from "../hooks/useBoard.ts";
 import {EditableText} from "./EditableText.tsx";
-
+import { useSortable} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities"
+import {useDraggable} from "@dnd-kit/core";
 interface CardItemProps {// ts won't work without this when starting
     card: Card
 }
 
 export function CardItem({card}: CardItemProps) {
     const {dispatch} = useBoard()
+    const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({id: card.id})
+    const style= {
+        transform: CSS.Transform.toString(transform),
+        transition,
+        opacity: isDragging ? 0.4 : 1,
+    }
     return (
+        <div ref={setNodeRef} style={style} {...attributes} {...listeners} className="carditem">
 
-        <div className="carditem">
 
             <EditableText value={card.title} onSave={t => dispatch({type: 'EDIT_CARD', cardId: card.id, title: t})}/>
             {card.description && <p>{card.description}</p>}
@@ -33,7 +41,7 @@ export function CardItem({card}: CardItemProps) {
                     X
                 </button>
             </div>
-        </div>
 
+        </div>
     )
 }

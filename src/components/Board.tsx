@@ -12,6 +12,11 @@ export function Board() {
         useSensor(PointerSensor, { activationConstraint: {distance: 5}}),
         useSensor(KeyboardSensor)
     )
+
+    function handleDragEnd() {
+
+    }
+
     return (
         <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
             <div className="board">
