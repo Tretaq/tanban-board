@@ -3,7 +3,17 @@ import {Column} from "./Column.tsx";
 import "./Board.css"
 import {useBoard} from "../hooks/useBoard.ts";
 import {AddForm} from "./AddForm.tsx";
-import {DndContext, PointerSensor, KeyboardSensor, useSensors, useSensor, type DragEndEvent} from "@dnd-kit/core";
+import {
+    DndContext,
+    PointerSensor,
+    KeyboardSensor,
+    useSensors,
+    useSensor,
+    type DragEndEvent,
+    type DragStartEvent, DragOverlay
+} from "@dnd-kit/core";
+import {useState} from "react";
+import type {Card} from "../types/board.ts";
 
 export function Board() {
     const { board } = useBoard()
@@ -36,10 +46,9 @@ export function Board() {
         if(!fromColumnId || !toColumnId ) {
             return;
         }
+        console.log('active:', event.active.id, 'over:', event.over?.id ?? null)
         dispatch({type: "MOVE_CARD", cardId: activeId, fromColumnId, toColumnId, toIndex});
-
-
-
+        
     }
 
     return (
@@ -56,6 +65,7 @@ export function Board() {
 
                 }
             </div>
+
         </DndContext>
     )
 }
