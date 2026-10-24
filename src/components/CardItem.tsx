@@ -20,7 +20,7 @@ export function CardItem({card}: CardItemProps) {
             {card.dueDate && <p>{card.dueDate}</p>}
             <div className="labels">
                 {card.labels.map(label => (
-                    <span key={label}>
+                    <span className="label" key={label}>
                         {label}
                     </span>
                 ))}

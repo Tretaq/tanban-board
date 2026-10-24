@@ -20,9 +20,9 @@ export function Board() {
                 })
                 
             }
-            <div className="AddColumn">
-                <AddForm placeholder={"New Column"} buttonLabel={"Add Column"}  onAdd={title => dispatch({ type: 'ADD_COLUMN', title })}/>
-            </div>
+            {/*<div className="AddColumn">*/}
+            {/*    <AddForm placeholder={"New Column"} buttonLabel={"Add Column"}  onAdd={title => dispatch({ type: 'ADD_COLUMN', title })}/>*/}
+            {/*</div>*/}
         </div>
     )
 }
