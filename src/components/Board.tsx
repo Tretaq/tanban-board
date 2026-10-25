@@ -9,17 +9,15 @@ import {
     useSensors,
     useSensor,
     type DragEndEvent,
-    type DragStartEvent, DragOverlay
 } from "@dnd-kit/core";
 import {useState} from "react";
-import type {Card} from "../types/board.ts";
-import {CardItem} from "./CardItem.tsx";
+
 
 export function Board() {
     const { board } = useBoard()
     const { dispatch } = useBoard();
-    const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
-    const selectedCard = selectedCardId ? board.cards[selectedCardId] : undefined
+    // const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
+    // const selectedCard = selectedCardId ? board.cards[selectedCardId] : undefined
     const sensors = useSensors(
         useSensor(PointerSensor, { activationConstraint: {distance: 5}}),
         useSensor(KeyboardSensor)
