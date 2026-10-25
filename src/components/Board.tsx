@@ -2,7 +2,6 @@ import {findColumnId, getColumnCards} from "../utils/board.ts";
 import {Column} from "./Column.tsx";
 import "./Board.css"
 import {useBoard} from "../hooks/useBoard.ts";
-import {AddForm} from "./AddForm.tsx";
 import {
     DndContext,
     PointerSensor,

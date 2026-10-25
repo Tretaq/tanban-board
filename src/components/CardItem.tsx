@@ -5,8 +5,7 @@ import {useBoard} from "../hooks/useBoard.ts";
 import {EditableText} from "./EditableText.tsx";
 import { useSortable} from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities"
-import {useDraggable} from "@dnd-kit/core";
-interface CardItemProps {// ts won't work without this when starting
+interface CardItemProps {
     card: Card
 }
 

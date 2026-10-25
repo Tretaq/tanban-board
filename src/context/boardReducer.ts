@@ -1,7 +1,6 @@
 import type {Board, Card, Column} from "../types/board.ts";
 import {createId} from "../utils/id.ts";
 import {initialBoard} from "../utils/seed.ts";
-import {act} from "react";
 
 export type BoardAction = | {type: 'ADD_CARD'; columnId: string; title: string}
     | {type: 'DELETE_CARD'; cardId: string}
