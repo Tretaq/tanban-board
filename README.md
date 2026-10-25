@@ -2,6 +2,10 @@
 
 Its a kanban board clone build with react and Tsx, where everything stores in your browser.
 
+## Screanshot 
+
+![img.png](img.png)
+
 ## Demo
 
 https://tanban-board-8695.vercel.app/
@@ -25,3 +29,12 @@ cd tanban-board
 npm install
 npm run dev
 ```
+
+## To Do in future 
+- edit all cards 
+- drag columns 
+- make better css than this shit <33 
+
+## Project meme 
+
+![img_1.png](img_1.png)
