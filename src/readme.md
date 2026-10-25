@@ -4,6 +4,8 @@ Its a kanban board clone build with react and Tsx, where everything stores in yo
 
 ## Demo
 
+https://tanban-board-8695.vercel.app/
+
 ## Features
 
 - Add and delete a card or column 
