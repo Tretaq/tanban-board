@@ -14,10 +14,13 @@ import {
 } from "@dnd-kit/core";
 import {useState} from "react";
 import type {Card} from "../types/board.ts";
+import {CardItem} from "./CardItem.tsx";
 
 export function Board() {
     const { board } = useBoard()
     const { dispatch } = useBoard();
+    const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
+    const selectedCard = selectedCardId ? board.cards[selectedCardId] : undefined
     const sensors = useSensors(
         useSensor(PointerSensor, { activationConstraint: {distance: 5}}),
         useSensor(KeyboardSensor)
@@ -51,7 +54,7 @@ export function Board() {
         
     }
 
-    return (
+    return (<>
         <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
             <div className="board">
                 {
@@ -59,7 +62,7 @@ export function Board() {
                         const column = board.columns[columnId];
                         if(!column) return null;
                         return (
-                            <Column key={column.id} column={column} cards={getColumnCards(board, columnId)}></Column>
+                            <Column  key={column.id} column={column} cards={getColumnCards(board, columnId)}></Column>
                         )
                     })
 
@@ -67,8 +70,7 @@ export function Board() {
             </div>
 
         </DndContext>
+            {/*{selectedCardId && (<CardItem card={selectedCard} key={selectedCard.id} onClose{() => setSelectedCardId(null)} />)}*/}
+        </>
     )
 }
-{/*<div className="AddColumn">*/}
-{/*    <AddForm placeholder={"New Column"} buttonLabel={"Add Column"}  onAdd={title => dispatch({ type: 'ADD_COLUMN', title })}/>*/}
-{/*</div>*/}

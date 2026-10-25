@@ -11,6 +11,7 @@ export type BoardAction = | {type: 'ADD_CARD'; columnId: string; title: string}
     | {type: 'RENAME_COLUMN';  columnId: string;  title: string}
     | {type: 'MOVE_CARD';  cardId: string;  fromColumnId: string, toColumnId: string,toIndex: number}
     | {type: 'RESET_BOARD'}
+    | {type: 'UPDATE_CARD'; cardId: string; changes: Partial<Omit<Card, 'id'>>};
 
 
 export function boardReducer(state: Board, action: BoardAction):Board {
@@ -99,6 +100,15 @@ export function boardReducer(state: Board, action: BoardAction):Board {
         }
         case 'RESET_BOARD': {
             return initialBoard;
+        }
+        case 'UPDATE_CARD': {
+            const card = state.cards[action.cardId];
+             if(!card) return state;
+             return {
+                 ...state,
+                 cards: { ...state.cards, [card.id]: { ...card, ...action.changes}}
+             }
+
         }
         default: {
             return state;
