@@ -31,12 +31,14 @@ export function EditableText({value , onSave}: EditableTextProps){
                onChange={e => setDraft(e.target.value)}
                onBlur={save}
                onKeyDown={e => {
+                   e.stopPropagation()
                    if(e.key === 'Enter'){
                        save()
                    } else if (e.key === 'Escape'){
                        cancel()
                    }
                }}
+               onPointerDown={e => {e.stopPropagation()}}
         />
     )
 }
