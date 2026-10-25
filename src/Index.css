@@ -1,3 +1,23 @@
 main{
     padding: 0 20px;
 }
+input{
+    font: inherit;
+    padding: 6px 8px;
+    border: 1px solid #c1c7d0;
+    border-radius: 6px;
+}
+input:focus{
+    outline: 2px solid #4c6ef5;
+}
+button{
+    font: inherit;
+    padding: 4px 10px;
+    border: 1px solid #c1c7d0;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+}
+button:hover{
+    background: #f0f1f3;
+}
